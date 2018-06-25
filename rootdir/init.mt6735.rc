@@ -2,7 +2,6 @@
 
 import init.connectivity.rc
 import init.project.rc
-import init.freeme.fp.rc
 import init.aee.rc
 import init.fon.rc
 import init.rilproxy.rc
@@ -11,6 +10,7 @@ import init.mal.rc
 import init.wfca.rc
 import init.epdg.rc
 import init.trustonic.rc
+import init.microtrust.rc
 import init.common_svc.rc
 import multi_init.rc
 
@@ -468,6 +468,12 @@ on post-fs-data
     chmod 0660 /dev/fm
     chown media media /dev/fm
 
+    #add jinbaoping
+    chmod 0666 /sys/class/torch/torch/torch_level 
+    chmod 0666 /sys/class/sub_torch/sub_torch/sub_torch_level
+    chmod 0666 /sys/devices/platform/leds-mt65xx/leds/red/brightness
+    chmod 0666 /sys/devices/platform/battery/CHG_CAPACITY_TEST
+
     # device apc settings
 
     # device info /proc interface
@@ -513,24 +519,7 @@ on post-fs-data
     chmod 0660 /dev/kd_camera_flashlight
     chmod 0660 /dev/kd_camera_hw_bus2
     chmod 0660 /dev/FM50AF
-    chmod 0660 /dev/GC8024AF
-    chmod 0660 /dev/GC5005AF
-    chmod 0660 /dev/GC5024AF
-    chmod 0660 /dev/HM5040AF
-    chmod 0660 /dev/IMX214AF
-    chmod 0660 /dev/SP5506AF
-    chmod 0660 /dev/IMX237AF
-    chmod 0660 /dev/IMX179AF
-    chmod 0660 /dev/S5K3H7AF
-    chmod 0660 /dev/S5K3H7YXAF
-    chmod 0660 /dev/DW9714AF
-    chmod 0660 /dev/IMX149AF
-    chmod 0660 /dev/DW9763AF
-    chmod 0660 /dev/OV8865AF
-    chmod 0660 /dev/SP8407AF
     chmod 0660 /dev/CAM_CAL_DRV
-
-    chown system camera /sys/mipi_switch/mipi_switch
 
     chown system camera /dev/camera-sysram
     chown system camera /dev/camera-isp
@@ -540,22 +529,11 @@ on post-fs-data
     chown system camera /dev/kd_camera_flashlight
     chown system camera /dev/kd_camera_hw_bus2
     chown system camera /dev/FM50AF
-    chown system camera /dev/GC8024AF
-    chown system camera /dev/GC5005AF
-    chown system camera /dev/GC5024AF
-    chown system camera /dev/HM5040AF
-    chown system camera /dev/IMX214AF
-    chown system camera /dev/SP5506AF
-    chown system camera /dev/IMX237AF
-    chown system camera /dev/IMX179AF
-    chown system camera /dev/S5K3H7AF
-    chown system camera /dev/S5K3H7YXAF
-    chown system camera /dev/DW9714AF
-    chown system camera /dev/IMX149AF
-    chown system camera /dev/DW9763AF
-    chown system camera /dev/OV8865AF
-    chown system camera /dev/SP8407AF
     chown system camera /dev/CAM_CAL_DRV
+    #zhangpj add for camera 3rd feature begin
+    mkdir /data/bshaders 0777 root system
+    mkdir /data/lshaders 0777 root system
+    #zhangpj add for camera 3rd feature end
 
     #MATV
     chmod 0660 /dev/MATV
@@ -663,7 +641,11 @@ on boot
     chown system system /sys/class/leds/red/trigger
     chown system system /sys/class/leds/green/trigger
     chown system system /sys/class/leds/blue/trigger
-
+    #add jinbaoping
+    chmod 0666 /sys/class/leds/blue/brightness
+    chmod 0666 /sys/class/leds/red/brightness
+    chmod 0666 /sys/class/leds/green/brightness
+    #add jinbaoping
     chown system system /sys/kernel/debug/ged/hal/fps_upper_bound
     chmod 0660 /sys/kernel/debug/ged/hal/fps_upper_bound
     chown system system /sys/kernel/debug/ged/hal/vsync_offset_level
@@ -1207,15 +1189,22 @@ service memsicd /vendor/bin/memsicd
     group system
     class main
 
-service memsicd3416x /vendor/bin/memsicd3416x
-     disabled
-	 user system
+#add by changzhe.wang
+service mmc3524xd  /vendor/bin/mmc3524xd
+	disabled
+    user system
     group system
     class main
-
-service memsicp /vendor/bin/memsicp
-    oneshot
+    
+service af7133ed  /vendor/bin/af7133ed
+	disabled
     user system
+    group system
+    class main
+    
+service memsicd3416x /vendor/bin/memsicd3416x
+     disabled
+     user system
     group system
     class main
 service akmd8975 /vendor/bin/akmd8975

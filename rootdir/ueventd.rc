@@ -99,5 +99,3 @@ subsystem adf
 # DVB API device nodes
 /dev/dvb*                 0660   root       system
 
-#NXP
-/dev/i2c_tfa9890      0666  system     system
