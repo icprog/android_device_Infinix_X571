@@ -16,8 +16,8 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-3072-hwui
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 # set locales & aapt config.
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi xxhdpi
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -113,7 +113,6 @@ PRODUCT_PACKAGES += \
     libnl_2 \
     libion \
     fingerprintd \
-    fingerprint.default
 
 # MTK apps
 PRODUCT_PACKAGES += \
@@ -137,7 +136,7 @@ PRODUCT_PACKAGES += \
     YahooWeatherProvider \
     KernelAdiutor \
     Jelly \
-    CMActions
+    cmactions
 
 # Power
 PRODUCT_PACKAGES += \
