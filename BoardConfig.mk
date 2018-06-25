@@ -5,7 +5,7 @@ VENDOR_PATH := vendor/Infinix/X571
 -include $(VENDOR_PATH)/BoardConfigVendor.mk
 
 # Architecture
-FORCE_32_BIT := false
+#FORCE_32_BIT := false
 BLOCK_BASED_OTA := true
 TARGET_FORCE_DEXPREOPT := false
 
