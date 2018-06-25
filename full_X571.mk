@@ -81,7 +81,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/init.aee.rc:root/init.aee.rc \
     $(LOCAL_PATH)/rootdir/init.common_svc.rc:root/init.common_svc.rc \
     $(LOCAL_PATH)/rootdir/init.recovery.mt6735.rc:root/init.recovery.mt6735.rc \
-    $(LOCAL_PATH)/rootdir/init.freeme.fp.rc:root/init.freeme.fp.rc\
+    $(LOCAL_PATH)/rootdir/init.microtrust.rc:root/init.microtrust.rc\
     $(LOCAL_PATH)/rootdir/multi_init.rc:root/multi_init.rc
 
 # Audio
