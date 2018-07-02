@@ -26,6 +26,7 @@ type pq_service, service_manager_type;
 type gas_srv_service, service_manager_type;
 type dm_agent_binder_service, service_manager_type;
 type aal_service, service_manager_type;
+type fpserver_service, service_manager_type;
 
 # ==============================================
 # MTK Policy Rule
@@ -49,8 +50,4 @@ type terservice_service, service_manager_type;
 type vtservice_service, service_manager_type;
 type vie_command_service, service_manager_type;
 type mtk_usp_service, app_api_service, system_server_service, service_manager_type;
-
-type fpserver_service, service_manager_type;
-type fpserver, domain;
-type fpserver_exec, exec_type, file_type;
 
