@@ -18,6 +18,9 @@ r_dir_file(fpserver, sunwave_data_file)
 allow fpserver sunwave_data_file:dir ra_dir_perms;
 allow fpserver sunwave_data_file:file create_file_perms;
 allow fpserver sunwave_device:chr_file { open read write ioctl rw_file_perms};
+allow fpserver fpserver_data_file:dir ra_dir_perms;
+allow fpserver fpserver_data_file:file create_file_perms;
+allow fpserver fpserver_device:chr_file { open read write ioctl rw_file_perms};
 #allow fpserver system_data_file:dir create_dir_perms;
 #allow fpserver system_data_file:file create_file_perms;
 allow fpserver system_file:file {read open execute_no_trans execute};
